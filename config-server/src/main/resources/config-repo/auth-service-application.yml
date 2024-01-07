@@ -1,0 +1,56 @@
+server:
+  port: 9090
+
+spring:
+  security:
+    user:
+      name: tolga
+      password: 123
+  cache:
+    type: redis
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: user
+    password: user
+
+  zipkin:
+    enabled: true
+    base-url: http://localhost:9411
+    service:
+      name: auth-service
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: 1234
+    url: jdbc:postgresql://localhost:5432/AuthDb
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+jwt:
+  secretKey: ${java12secret}
+  issuer: ${java12issuer}
+
+rabbitmq:
+  auth-exchange: authExchange
+  register-queue: registerQueue
+  register-bindingKey: registerBindingKey
+
+  active-status-queue: activeStatusQueue
+  active-status-bindingKey: activeStatusBindingKey
+
+  mail-queue: mailQueue
+  mail-bindingKey: mailBindingKey
+
+##redis:
+  ##host: localhost
+  ##port: 6379
